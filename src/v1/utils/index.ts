@@ -9,9 +9,12 @@ export function validateAndFormat(phoneNumber: any) {
   const regex = /^(09|234)?[0-9]{11}$/
   // const ngnNumber = /^(\+234|0)?(1|01)[0-9]{9}$/
 
-  if (phoneNumber.startsWith('+234')) {
+  if (phoneNumber.startsWith('+')) {
     return phoneNumber
   }
+
+  throw new Error('Phone must start with country code')
+
 
   let formatedPhone
 

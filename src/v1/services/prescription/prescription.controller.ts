@@ -54,7 +54,7 @@ const createPrescription = async (req: any, res: any) => {
 const getPrescriptions = async (req: any, res: any) => {
   try {
     // get user from request
-    const { name, phone } = req.query
+    const { name, phone } = req.params
 
     // console.log(name, phone, 'details froom qurery')
 
@@ -73,7 +73,7 @@ const getPrescriptions = async (req: any, res: any) => {
       }
     }
 
-    // console.log(filterBy)
+    console.log(filterBy)
     // create new prescription
     // const allprescriptionData = await prescriptionService.getByQuery(filterBy)
     const allprescriptionData = await PrescriptionModel.find(filterBy).populate({
@@ -408,6 +408,9 @@ const cancleSelectedPriscription = async (req: any, res: any) => {
 const getUserTotalPrescriptions = async (req: any, res: any) => {
   try {
     const currentUser = req.user
+
+    console.log(currentUser.phone)
+    
 
 
     const totalUserPrescription = await PrescriptionModel.find({ 'contact.phone': currentUser.phone }).count()

@@ -108,7 +108,9 @@ const updateProfile = async (req: any, res: any) => {
       }
     } else {
       // update user profile, since it exist.
-      if (currentUser.role === 'patient') {
+      if (currentUser.role === 'patient')
+      {
+        
         const updateProfile = await patientProfile.updateOne({ _id: currentUser.profileId }, data)
 
         if (!updateProfile) throw new Error('profile not found')

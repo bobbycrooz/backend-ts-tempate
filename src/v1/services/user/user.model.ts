@@ -181,6 +181,11 @@ const patientProfileSchema = new mongoose.Schema({
       type: String,
       default: ''
     },
+
+    sex: {
+      type: String,
+      default: ''
+    },
     weight: {
       type: String,
       default: ''

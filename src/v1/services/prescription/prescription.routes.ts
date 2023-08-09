@@ -15,9 +15,9 @@ const router = Router()
 
 router.post('/', createPrescription) //tested
 
-router.get('/', getPrescriptions)  //tested
-
 router.get('/total', getUserTotalPrescriptions)  //tested
+
+router.get('/:phone', getPrescriptions)  //tested
 
 router.get('/history', prescriptionHistory) //doctor  tested
 

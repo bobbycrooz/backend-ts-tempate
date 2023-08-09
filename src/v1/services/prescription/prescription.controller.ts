@@ -410,9 +410,7 @@ const getUserTotalPrescriptions = async (req: any, res: any) => {
     const currentUser = req.user
 
 
-    const modifiedPhoneNumber = '0' + currentUser.phone.slice(4)
-
-    const totalUserPrescription = await PrescriptionModel.find({ 'contact.phone': modifiedPhoneNumber }).count()
+    const totalUserPrescription = await PrescriptionModel.find({ 'contact.phone': currentUser.phone }).count()
 
 
     return clientResponse(res, 201, {
